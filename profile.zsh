@@ -2,9 +2,28 @@
 alias chrome="open -a 'Google Chrome'"
 
 # Development
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias vscode='open -a /Applications/Visual\ Studio\ Code.app/ .'
 alias showports='lsof -PiTCP -sTCP:LISTEN'
+alias termtab='iterm_open_tab'
+alias pscript="jq '.scripts' package.json"
+alias pdeps="jq '.dependencies' package.json"
+
+# Utility Functions
+iterm_open_tab() {
+	osascript -e 'tell application "iTerm" to activate' -e 'tell application "System Events" to tell process "iTerm" to keystroke "t" using command down'
+}
+
+iterm_divide_window() {
+	osascript -e 'tell application "iTerm" to activate' -e 'tell application "System Events" to tell process "iTerm" to keystroke "d" using command down'
+}
+
+display_profile_path_fancy() {
+	echo "\n✨ ~/.oh-my-zsh/custom/profile.zsh ✨\n"
+}
+
+change_directory_custom_shell() {
+	cd ~/.oh-my-zsh/custom/
+}
 
 # Grep
 export GREP_OPTIONS='--color=auto'
@@ -18,6 +37,25 @@ alias gitp='git pull'
 alias gadd='git add -p .'
 alias gcommit='git commit -m'
 alias gpush='git push'
+
+# Projects
+
+open_star_platinum() {
+	cd ~/Projects/current/Star\ Platinum\ The\ World;
+	vscode .;
+	cd star-platinum-client;
+	iterm_divide_window;
+	npm run serve;
+}
+
+open_za_worldo_api() {
+	cd ~/Projects/current/Star\ Platinum\ The\ World;
+	cd za-worldo-api;
+	npm run start:dev;
+}
+
+alias starplatinum='open_star_platinum'
+alias zaworld='open_za_worldo_api'
 
 # Bash
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx # dark background
