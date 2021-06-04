@@ -17,6 +17,10 @@ iterm_divide_window() {
 	osascript -e 'tell application "iTerm" to activate' -e 'tell application "System Events" to tell process "iTerm" to keystroke "d" using command down'
 }
 
+iterm_split_window() {
+	osascript -e 'tell application "iTerm" to activate' -e 'tell application "System Events" to tell process "iTerm" to keystroke "D" using command down'
+}
+
 display_profile_path_fancy() {
 	echo "\n✨ ~/.oh-my-zsh/custom/profile.zsh ✨\n"
 }
@@ -42,15 +46,18 @@ alias gpush='git push'
 
 open_star_platinum() {
 	cd ~/Projects/current/Star\ Platinum\ The\ World;
-	vscode .;
+	open star-platinum.code-workspace;
 	cd star-platinum-client;
-	iterm_divide_window;
+	sleep 1;
+	iterm_split_window;
 	npm run serve;
 }
 
 open_za_worldo_api() {
 	cd ~/Projects/current/Star\ Platinum\ The\ World;
 	cd za-worldo-api;
+	sleep 1;
+	iterm_split_window;
 	npm run start:dev;
 }
 
