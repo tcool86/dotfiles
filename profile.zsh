@@ -65,6 +65,8 @@ alias starplatinum='open_star_platinum'
 alias zaworld='open_za_worldo_api'
 
 # Bash
+alias plz='sudo !!'
+
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx # dark background
 alias ls='ls -laghFG'
 alias ll='ls -laghFG'
